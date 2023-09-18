@@ -29,8 +29,8 @@ public class Text implements ILayoutable {
     public void draw(char[][] result) {
 
         int count = 0;
-        for (int i = line; i < height; i++) {
-            for (int j = column; j < width; j++) {
+        for (int i = line; i < line + height; i++) {
+            for (int j = column; j < width + column; j++) {
                 result[i][j] = text.charAt(count);
                 count++;
             }
