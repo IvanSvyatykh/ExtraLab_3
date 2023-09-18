@@ -7,6 +7,9 @@ public class VerticalLayout implements ILayoutable {
     private ArrayList<ILayoutable> elements;
     private int heigth;
     private int width = 0;
+    private int column=0;
+    private int line=0;
+
 
     public VerticalLayout(ILayoutable... elements) {
 
@@ -18,6 +21,7 @@ public class VerticalLayout implements ILayoutable {
     public void calculate() {
 
         for (ILayoutable el : elements) {
+            el.calculate();
             width = Math.max(width, el.getWidth());
             heigth += el.getHeight();
             heigth++;
@@ -27,16 +31,24 @@ public class VerticalLayout implements ILayoutable {
 
     @Override
     public int getWidth() {
-        return 0;
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return heigth;
     }
 
     @Override
     public void draw(char[][] result) {
 
     }
+
+    @Override
+    public void setElementPos(int i, int j) {
+
+        line = i;
+        column = j;
+    }
+
 }

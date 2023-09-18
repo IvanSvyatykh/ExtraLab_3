@@ -1,11 +1,11 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Rectangle implements ILayoutable {
 
     private ILayoutable element;
     private int width;
-    private int heigth;
+    private int height;
+    private int column=0;
+    private int line=0;
+
 
     public Rectangle(ILayoutable element) {
 
@@ -14,8 +14,10 @@ public class Rectangle implements ILayoutable {
 
     @Override
     public void calculate() {
-        heigth = element.getHeight() + 4;
+        element.calculate();
+        height = element.getHeight() + 4;
         width = element.getWidth() + 4;
+        element.setElementPos(height - 2, width - 2);
     }
 
     @Override
@@ -25,11 +27,25 @@ public class Rectangle implements ILayoutable {
 
     @Override
     public int getHeight() {
-        return heigth;
+        return height;
     }
 
     @Override
     public void draw(char[][] result) {
 
+        int count = 0;
+        for (int i = line; i < height; i++) {
+            for (int j = column; j < width; j++) {
+
+            }
+        }
     }
+
+    @Override
+    public void setElementPos(int i, int j) {
+
+        line = i;
+        column = j;
+    }
+
 }

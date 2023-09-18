@@ -3,6 +3,8 @@ public class Text implements ILayoutable {
     private String text;
     private int width;
     private static final int height = 1;
+    private int column = 0;
+    private int line = 0;
 
     public Text(String text) {
         this.text = text;
@@ -26,6 +28,18 @@ public class Text implements ILayoutable {
     @Override
     public void draw(char[][] result) {
 
+        int count = 0;
+        for (int i = line; i < height; i++) {
+            for (int j = column; j < width; j++) {
+                result[i][j] = text.charAt(count);
+                count++;
+            }
+        }
     }
 
+    @Override
+    public void setElementPos(int i, int j) {
+        line = i;
+        column = j;
+    }
 }
