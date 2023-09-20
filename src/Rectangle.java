@@ -3,8 +3,8 @@ public class Rectangle implements ILayoutable {
     private ILayoutable element;
     private int width;
     private int height;
-    private int column=0;
-    private int line=0;
+    private int column = 0;
+    private int line = 0;
 
 
     public Rectangle(ILayoutable element) {
@@ -15,9 +15,8 @@ public class Rectangle implements ILayoutable {
     @Override
     public void calculate() {
         element.calculate();
-        height = element.getHeight() + 4;
+        height = element.getHeight() + 2;
         width = element.getWidth() + 4;
-        element.setElementPos(height - 2, width - 2);
     }
 
     @Override
@@ -33,12 +32,25 @@ public class Rectangle implements ILayoutable {
     @Override
     public void draw(char[][] result) {
 
-        int count = 0;
-        for (int i = line; i < height; i++) {
-            for (int j = column; j < width; j++) {
-
+        int currentHeight = line + height;
+        int currentWidth = column + width;
+        for (int i = line; i < currentHeight; i++) {
+            for (int j = column; j < currentWidth; j++) {
+                if (i == line && j == column) result[i][j] = ('┌');
+                else if (i == line && (j == currentWidth - 1)) result[i][j] = ('┐');
+                else if (i == line) result[i][j] = ('─');
+                else if (i == currentHeight - 1 && j == column) result[i][j] = ('└');
+                else if (i == currentHeight - 1 && j == currentWidth - 1) result[i][j] = ('┘');
+                else if (i == currentHeight - 1) result[i][j] = ('─');
+                else if (i != line && i != currentHeight - 1 && (j == column || j == currentWidth - 1))
+                    result[i][j] = ('│');
+                else result[i][j] = ' ';
             }
+            System.out.println();
+
         }
+        element.setElementPos(line + 1, column + 2);
+        element.draw(result);
     }
 
     @Override

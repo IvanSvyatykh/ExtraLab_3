@@ -19,7 +19,6 @@ public class Frame implements ILayoutable {
         width = Math.max(element.getWidth(), headLine.length());
         width += 4;
         height = element.getHeight();
-        height += 4;
     }
 
     @Override

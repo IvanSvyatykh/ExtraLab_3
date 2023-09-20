@@ -43,10 +43,10 @@ public class HorizontalLayout implements ILayoutable {
         for (int i = 0; i < elements.size(); i++) {
 
 
-            elements.get(i).setElementPos(line, column + offset + 1);
+            elements.get(i).setElementPos(line, column + offset );
             elements.get(i).draw(result);
 
-            offset += elements.get(i).getWidth();
+            offset += elements.get(i).getWidth() + 1;
 
         }
     }

@@ -45,7 +45,7 @@ public class VerticalLayout implements ILayoutable {
         int offset = 0;
         for(int i = 0;i < elements.size();i++){
 
-            elements.get(i).setElementPos(line+2 + offset,column);
+            elements.get(i).setElementPos(line + offset,column);
             offset+=elements.get(i).getHeight();
             elements.get(i).draw(result);
         }
