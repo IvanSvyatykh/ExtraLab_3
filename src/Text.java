@@ -38,7 +38,8 @@ public class Text implements ILayoutable {
     }
 
     @Override
-    public void setElementPos(int i, int j) {
+    public void setElementPos(int i, int j , int width ,int height) {
+
         line = i;
         column = j;
     }

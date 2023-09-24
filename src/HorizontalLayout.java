@@ -24,6 +24,7 @@ public class HorizontalLayout implements ILayoutable {
             width++;
         }
         width--;
+
     }
 
     @Override
@@ -43,7 +44,7 @@ public class HorizontalLayout implements ILayoutable {
         for (int i = 0; i < elements.size(); i++) {
 
 
-            elements.get(i).setElementPos(line, column + offset );
+            elements.get(i).setElementPos(line, column + offset, elements.get(i).getWidth(), height-1);
             elements.get(i).draw(result);
 
             offset += elements.get(i).getWidth() + 1;
@@ -52,9 +53,12 @@ public class HorizontalLayout implements ILayoutable {
     }
 
     @Override
-    public void setElementPos(int i, int j) {
+    public void setElementPos(int i, int j, int width, int height) {
+
         line = i;
         column = j;
+        this.width = width;
+        this.height = height;
     }
 
 }

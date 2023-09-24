@@ -55,15 +55,17 @@ public class Frame implements ILayoutable {
             }
             System.out.println();
         }
-        element.setElementPos(line + 1, column + 2);
+        element.setElementPos(line + 1, column + 2, width - 2, height-1);
         element.draw(result);
 
     }
 
     @Override
-    public void setElementPos(int i, int j) {
+    public void setElementPos(int i, int j, int width, int height) {
 
         line = i;
         column = j;
+        this.width = width;
+        this.height = height;
     }
 }

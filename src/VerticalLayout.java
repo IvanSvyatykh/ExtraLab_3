@@ -5,10 +5,10 @@ public class VerticalLayout implements ILayoutable {
 
 
     private ArrayList<ILayoutable> elements;
-    private int heigth;
+    private int height;
     private int width = 0;
-    private int column=0;
-    private int line=0;
+    private int column = 0;
+    private int line = 0;
 
 
     public VerticalLayout(ILayoutable... elements) {
@@ -23,10 +23,10 @@ public class VerticalLayout implements ILayoutable {
         for (ILayoutable el : elements) {
             el.calculate();
             width = Math.max(width, el.getWidth());
-            heigth += el.getHeight();
-            heigth++;
+            height += el.getHeight();
+            height++;
         }
-        heigth--;
+        height--;
     }
 
     @Override
@@ -36,26 +36,27 @@ public class VerticalLayout implements ILayoutable {
 
     @Override
     public int getHeight() {
-        return heigth;
+        return height;
     }
 
     @Override
     public void draw(char[][] result) {
 
         int offset = 0;
-        for(int i = 0;i < elements.size();i++){
+        for (int i = 0; i < elements.size(); i++) {
 
-            elements.get(i).setElementPos(line + offset,column);
-            offset+=elements.get(i).getHeight();
+            elements.get(i).setElementPos(line + offset, column, width, height);
+            offset += elements.get(i).getHeight();
             elements.get(i).draw(result);
         }
     }
 
     @Override
-    public void setElementPos(int i, int j) {
+    public void setElementPos(int i, int j, int width, int height) {
 
         line = i;
         column = j;
+        this.height = height;
     }
 
 }

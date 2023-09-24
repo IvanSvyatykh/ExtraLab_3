@@ -4,5 +4,5 @@ public interface ILayoutable {
      int getWidth();
      int getHeight();
      void draw(char[][] result);
-     void setElementPos(int i , int j);
+     void setElementPos(int i , int j , int width , int height);
 }
