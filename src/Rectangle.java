@@ -15,7 +15,7 @@ public class Rectangle implements ILayoutable {
     @Override
     public void calculate() {
         element.calculate();
-        height = element.getHeight() + 2;
+        height = element.getHeight() +2 ;
         width = element.getWidth() + 4;
     }
 

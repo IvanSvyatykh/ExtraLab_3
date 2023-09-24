@@ -20,13 +20,14 @@ public class VerticalLayout implements ILayoutable {
     @Override
     public void calculate() {
 
+        height++;
         for (ILayoutable el : elements) {
             el.calculate();
             width = Math.max(width, el.getWidth());
             height += el.getHeight();
-            height++;
+
         }
-        height--;
+        height++;
     }
 
     @Override
@@ -53,10 +54,8 @@ public class VerticalLayout implements ILayoutable {
 
     @Override
     public void setElementPos(int i, int j, int width, int height) {
-
         line = i;
         column = j;
-        this.height = height;
     }
 
 }

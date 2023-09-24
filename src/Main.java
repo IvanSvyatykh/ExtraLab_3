@@ -7,6 +7,8 @@ public class Main {
                         new VerticalLayout(
                                 new Rectangle(new Text("User")),
                                 new Rectangle(new Text("Password")),
+
+
                                 new HorizontalLayout(
                                         new Rectangle(new Text("Ok")),
                                         new Rectangle(new Text("Cancel"))
